@@ -47,7 +47,7 @@ int main(int argc, char** argv){
 		extract.filter(*cloud_p);
 		std::cout << "PointCloud representing the planar component: " << cloud_p->points.size() << " data points." << std::endl;
 
-		// Create ConcaveHull 
+		// Use ConvexHull 
 		pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_hull (new pcl::PointCloud<pcl::PointXYZ>);
 		pcl::ConvexHull<pcl::PointXYZ> chull;
 		chull.setInputCloud(cloud_p);
