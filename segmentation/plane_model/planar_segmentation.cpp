@@ -16,14 +16,14 @@ int main(int argc, char** argv){
 
 	pcl::ModelCoefficients::Ptr coefficients (new pcl::ModelCoefficients);
 	pcl::PointIndices::Ptr inliers (new pcl::PointIndices);
+	
 	// Create the segmentation object
 	pcl::SACSegmentation<pcl::PointXYZ> seg;
-	//pcl::SampleConsensusModelNormalPlane<pcl::PointXYZ, pcl::Normal> seg;
+	
 	//Optional
 	seg.setOptimizeCoefficients(true);
 
 	//Methods
-
 	seg.setModelType (pcl::SACMODEL_PLANE);
 	seg.setMethodType (pcl::SAC_RANSAC);
 	seg.setMaxIterations (1000);
@@ -34,11 +34,11 @@ int main(int argc, char** argv){
 	std::cout << "Input cloud data : " << nr_points << std::endl;
 
 	while(cloud->points.size() > 0.3 * nr_points){
-
 		std::cout << "number of point data left : " << cloud->points.size() << std::endl;
 		seg.setInputCloud(cloud);
 		seg.segment (*inliers, *coefficients);
-		//Extract the planar
+		
+		//Extract the inlier
 		pcl::ExtractIndices<pcl::PointXYZ> extract;
 		extract.setInputCloud (cloud);
 		extract.setIndices(inliers);
