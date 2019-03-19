@@ -9,7 +9,6 @@
 #include <pcl/sample_consensus/model_types.h>
 #include <pcl/surface/convex_hull.h>
 #include <pcl/surface/concave_hull.h>
-//#include <pcl/segmentation/statistical_segmentation.h>
 
 int main(int argc, char** argv){
 	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>), cloud_p (new pcl::PointCloud<pcl::PointXYZ>), cloud_f(new pcl::PointCloud<pcl::PointXYZ>), cloud_hull(new pcl::PointCloud<pcl::PointXYZ>);
@@ -50,7 +49,6 @@ int main(int argc, char** argv){
 		extract.setNegative(false);
 		extract.filter(*cloud_p);
 		std::cout << "PointCloud representing the planar component: " << cloud_p->points.size() << " data points." << std::endl;
-
 
 		// Use ConvexHull
 		if (pcl::console::find_argument (argc, argv, "-cv") >= 0){
