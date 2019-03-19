@@ -8,5 +8,5 @@ include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
-add_executable (pcd_read planar_segmentation.cpp)
+add_executable (pcd_read main.cpp)
 target_link_libraries (pcd_read ${PCL_LIBRARIES})
