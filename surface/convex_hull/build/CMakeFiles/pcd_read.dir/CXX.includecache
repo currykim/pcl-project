@@ -9,6 +9,8 @@
 /home/khkim/pcl-project/surface/convex_hull/planar_segmentation.cpp
 iostream
 -
+pcl/console/parse.h
+-
 pcl/ModelCoefficients.h
 -
 pcl/io/pcd_io.h
@@ -1816,6 +1818,14 @@ pcl/common/eigen.h
 pcl/PointIndices.h
 -
 pcl/common/impl/transforms.hpp
+-
+
+/usr/local/include/pcl-1.8/pcl/console/parse.h
+vector
+-
+sstream
+-
+pcl/pcl_macros.h
 -
 
 /usr/local/include/pcl-1.8/pcl/console/print.h

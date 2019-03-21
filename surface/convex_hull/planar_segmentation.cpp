@@ -1,4 +1,5 @@
 #include <iostream>
+#include <pcl/console/parse.h>
 #include <pcl/ModelCoefficients.h>
 #include <pcl/io/pcd_io.h>
 #include <pcl/segmentation/sac_segmentation.h>
@@ -11,11 +12,11 @@
 //#include <pcl/segmentation/statistical_segmentation.h>
 
 int main(int argc, char** argv){
-	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>), cloud_p (new pcl::PointCloud<pcl::PointXYZ>), cloud_f(new pcl::PointCloud<pcl::PointXYZ>), cloud_hull;
+	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>), cloud_p (new pcl::PointCloud<pcl::PointXYZ>), cloud_f(new pcl::PointCloud<pcl::PointXYZ>), cloud_hull(new pcl::PointCloud<pcl::PointXYZ>);
 
 	// PCD reader
 	pcl::PCDReader reader;
-	reader.read<pcl::PointXYZ> (argv[1], *cloud);
+	reader.read<pcl::PointXYZ> (argv[2], *cloud);
 
 	pcl::ModelCoefficients::Ptr coefficients (new pcl::ModelCoefficients);
 	pcl::PointIndices::Ptr inliers (new pcl::PointIndices);
@@ -50,20 +51,20 @@ int main(int argc, char** argv){
 		extract.filter(*cloud_p);
 		std::cout << "PointCloud representing the planar component: " << cloud_p->points.size() << " data points." << std::endl;
 
-		// Use ConvexHull
-		/*
-		pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_hull (new pcl::PointCloud<pcl::PointXYZ>);
-		pcl::ConvexHull<pcl::PointXYZ> chull;
-		chull.setInputCloud(cloud_p);
-//		chull.setAlpha(0.1);
-		chull.reconstruct(*cloud_hull);
-		*/
 
-	  	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_hull (new pcl::PointCloud<pcl::PointXYZ>);
-	    pcl::ConcaveHull<pcl::PointXYZ> chull;
-		chull.setInputCloud (cloud_p);
-		chull.setAlpha (0.1);
-		chull.reconstruct (*cloud_hull);
+		// Use ConvexHull
+		if (pcl::console::find_argument (argc, argv, "-cv") >= 0){
+			pcl::ConvexHull<pcl::PointXYZ> chull;
+			chull.setInputCloud(cloud_p);
+			chull.reconstruct(*cloud_hull);
+
+		// Use ConcaveHull
+		}else if(pcl::console::find_argument (argc, argv, "-cc") >= 0){
+			pcl::ConcaveHull<pcl::PointXYZ> chull;
+			chull.setInputCloud(cloud_p);
+			chull.setAlpha (0.1);
+			chull.reconstruct(*cloud_hull);
+		}
 
 		//write
 		pcl::PCDWriter writer;
