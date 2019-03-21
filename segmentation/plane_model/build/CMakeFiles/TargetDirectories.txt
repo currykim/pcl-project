@@ -1,3 +1,0 @@
-/home/khkim/workspace/BRL/pcl/segmentation/plane_model/build/CMakeFiles/edit_cache.dir
-/home/khkim/workspace/BRL/pcl/segmentation/plane_model/build/CMakeFiles/rebuild_cache.dir
-/home/khkim/workspace/BRL/pcl/segmentation/plane_model/build/CMakeFiles/pcd_read.dir

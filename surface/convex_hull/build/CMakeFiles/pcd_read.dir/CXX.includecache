@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/khkim/workspace/BRL/pcl/surface/convex_hull/planar_segmentation.cpp
+/home/khkim/pcl-project/surface/convex_hull/planar_segmentation.cpp
 iostream
 -
 pcl/ModelCoefficients.h
@@ -22,6 +22,8 @@ pcl/filters/extract_indices.h
 pcl/sample_consensus/method_types.h
 -
 pcl/sample_consensus/model_types.h
+-
+pcl/surface/convex_hull.h
 -
 pcl/surface/concave_hull.h
 -

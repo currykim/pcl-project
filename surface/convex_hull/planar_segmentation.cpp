@@ -7,6 +7,7 @@
 #include <pcl/sample_consensus/method_types.h>
 #include <pcl/sample_consensus/model_types.h>
 #include <pcl/surface/convex_hull.h>
+#include <pcl/surface/concave_hull.h>
 //#include <pcl/segmentation/statistical_segmentation.h>
 
 int main(int argc, char** argv){
@@ -29,7 +30,7 @@ int main(int argc, char** argv){
 	seg.setModelType (pcl::SACMODEL_PLANE);
 	seg.setMethodType (pcl::SAC_RANSAC);
 	seg.setMaxIterations (1000);
-	seg.setDistanceThreshold (0.1);
+	seg.setDistanceThreshold (0.05);
 
 	// Iteration
 	int nr_points = (int) cloud->points.size();
@@ -49,12 +50,20 @@ int main(int argc, char** argv){
 		extract.filter(*cloud_p);
 		std::cout << "PointCloud representing the planar component: " << cloud_p->points.size() << " data points." << std::endl;
 
-		// Use ConvexHull 
+		// Use ConvexHull
+		/*
 		pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_hull (new pcl::PointCloud<pcl::PointXYZ>);
 		pcl::ConvexHull<pcl::PointXYZ> chull;
 		chull.setInputCloud(cloud_p);
-		chull.setAlpha(0.1);
+//		chull.setAlpha(0.1);
 		chull.reconstruct(*cloud_hull);
+		*/
+
+	  	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_hull (new pcl::PointCloud<pcl::PointXYZ>);
+	    pcl::ConcaveHull<pcl::PointXYZ> chull;
+		chull.setInputCloud (cloud_p);
+		chull.setAlpha (0.1);
+		chull.reconstruct (*cloud_hull);
 
 		//write
 		pcl::PCDWriter writer;
@@ -67,48 +76,5 @@ int main(int argc, char** argv){
 		extract.filter(*cloud_f);
 		*cloud = *cloud_f;
 	}
-/*
-	seg.setInputCloud (cloud);
-	seg.segment (*inliers, *coefficients);
-
-	pcl::ExtractIndices<pcl::PointXYZ> extract;
-	extract.setInputCloud(cloud);
-	extract.setIndices(inliers);
-	extract.setNegative(false);
-	extract.filter(*cloud_p);
-
-
-	//pcl::PointCloud <pcl::PointXYZRGB>::Ptr colored_cloud = seg.getColoredCloud();
-	pcl::visualization::CloudViewer viewer ("Cluster viewer");
-	viewer.showCloud(cloud);
-	while(!viewer.wasStopped()){
-	}
-
-	if (inliers->indices.size () == 0){
-		PCL_ERROR ("Could not estimate a planar model for the given dataset.");
-		return(-1);
-	}
-
-	std::cerr << "Model coefficients: " << coefficients->values[0] << " " 
-	  								  << coefficients->values[1] << " "
-									  << coefficients->values[2] << " "
-									  << coefficients->values[3] << std::endl;
-	
-	// inlier 데이터 출력
-    std::cerr << "Model inliers: " << inliers->indices.size() << std::endl;
-	for (size_t i = 0; i < inliers->indices.size (); ++i)
-		std::cerr << inliers->indices[i] << "   " << cloud->points[inliers->indices[i]].x << " "
-												   << cloud->points[inliers->indices[i]].y << " "
-												   << cloud->points[inliers->indices[i]].z << std::endl;
-
-	//write inlier
-	pcl::PCDWriter writer;
-	writer.write<pcl::PointXYZ> ("planar_inliers.pcd", *cloud_p);
-
-	// write outlier
-	extract.setNegative(true);
-	extract.filter(*cloud_f);
-	writer.write<pcl::PointXYZ> ("planar_outliers.pcd", *cloud_f);
-*/
 	return(0);
 }

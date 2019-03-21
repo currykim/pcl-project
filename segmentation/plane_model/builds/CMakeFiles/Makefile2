@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/khkim/workspace/BRL/pcl/segmentation/plane_model
+CMAKE_SOURCE_DIR = /home/khkim/pcl-project/segmentation/plane_model
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/khkim/workspace/BRL/pcl/segmentation/plane_model/build
+CMAKE_BINARY_DIR = /home/khkim/pcl-project/segmentation/plane_model/builds
 
 #=============================================================================
 # Target rules for target CMakeFiles/pcd_read.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/khkim/workspace/BRL/pcl/segmentation/plane_model/build
 CMakeFiles/pcd_read.dir/all:
 	$(MAKE) -f CMakeFiles/pcd_read.dir/build.make CMakeFiles/pcd_read.dir/depend
 	$(MAKE) -f CMakeFiles/pcd_read.dir/build.make CMakeFiles/pcd_read.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/khkim/workspace/BRL/pcl/segmentation/plane_model/build/CMakeFiles --progress-num=1,2 "Built target pcd_read"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/khkim/pcl-project/segmentation/plane_model/builds/CMakeFiles --progress-num=1,2 "Built target pcd_read"
 .PHONY : CMakeFiles/pcd_read.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/pcd_read.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/pcd_read.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/khkim/workspace/BRL/pcl/segmentation/plane_model/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/khkim/pcl-project/segmentation/plane_model/builds/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/pcd_read.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/khkim/workspace/BRL/pcl/segmentation/plane_model/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/khkim/pcl-project/segmentation/plane_model/builds/CMakeFiles 0
 .PHONY : CMakeFiles/pcd_read.dir/rule
 
 # Convenience name for target.

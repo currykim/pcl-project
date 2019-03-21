@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/khkim/workspace/BRL/pcl/segmentation/plane_model/planar_segmentation.cpp" "/home/khkim/workspace/BRL/pcl/segmentation/plane_model/build/CMakeFiles/pcd_read.dir/planar_segmentation.cpp.o"
+  "/home/khkim/pcl-project/segmentation/plane_model/planar_segmentation.cpp" "/home/khkim/pcl-project/segmentation/plane_model/builds/CMakeFiles/pcd_read.dir/planar_segmentation.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

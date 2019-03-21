@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/khkim/workspace/BRL/pcl/segmentation/plane_model/planar_segmentation.cpp
+/home/khkim/pcl-project/segmentation/plane_model/planar_segmentation.cpp
 iostream
 -
 pcl/ModelCoefficients.h
@@ -19,7 +19,7 @@ pcl/visualization/cloud_viewer.h
 -
 pcl/filters/extract_indices.h
 -
-pcl/sample_consensus/sac_model_normal_plane.h
+pcl/sample_consensus/sac_model_plane.h
 -
 
 /usr/include/eigen3/Eigen/Cholesky

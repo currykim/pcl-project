@@ -4,8 +4,7 @@
 #include <pcl/segmentation/sac_segmentation.h>
 #include <pcl/visualization/cloud_viewer.h>
 #include <pcl/filters/extract_indices.h>
-#include <pcl/sample_consensus/sac_model_normal_plane.h>
-//#include <pcl/segmentation/statistical_segmentation.h>
+#include <pcl/sample_consensus/sac_model_plane.h>
 
 int main(int argc, char** argv){
 	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>), cloud_p (new pcl::PointCloud<pcl::PointXYZ>), cloud_f(new pcl::PointCloud<pcl::PointXYZ>);
@@ -16,10 +15,10 @@ int main(int argc, char** argv){
 
 	pcl::ModelCoefficients::Ptr coefficients (new pcl::ModelCoefficients);
 	pcl::PointIndices::Ptr inliers (new pcl::PointIndices);
-	
+
 	// Create the segmentation object
 	pcl::SACSegmentation<pcl::PointXYZ> seg;
-	
+
 	//Optional
 	seg.setOptimizeCoefficients(true);
 

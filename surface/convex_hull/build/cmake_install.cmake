@@ -1,4 +1,4 @@
-# Install script for directory: /home/khkim/workspace/BRL/pcl/surface/convex_hull
+# Install script for directory: /home/khkim/pcl-project/surface/convex_hull
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/khkim/workspace/BRL/pcl/surface/convex_hull/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/khkim/pcl-project/surface/convex_hull/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

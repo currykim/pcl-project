@@ -20,7 +20,7 @@ int main (int argc, char** argv){
 	// 최소 검색 이웃점 수
 	sor.setMeanK (50);
 	// mean + stddev_mult * sttdev, 최소 거리 
-	sor.setStddevMulThresh (10.0);
+	sor.setStddevMulThresh (1.0);
 	sor.filter (*cloud_filtered);
 
 	std::cerr << "Cloud after filtering: " << std::endl;
