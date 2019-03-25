@@ -56,7 +56,11 @@ cmake ..
 make -j$(nproc)
 sudo make install
 ```
-
+** openGL 에러있을 시
+```bash
+sudo apt-get install build-essential
+sudo apt-get install freeglut3-dev libglu1-mesa-dev mesa-common-dev
+```
 
 
 ### 1.4 Boost 설치
