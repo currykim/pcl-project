@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named pcd_read
+# Target rules for targets named convex_hull
 
 # Build rule for target.
-pcd_read: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pcd_read
-.PHONY : pcd_read
+convex_hull: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 convex_hull
+.PHONY : convex_hull
 
 # fast build rule for target.
-pcd_read/fast:
-	$(MAKE) -f CMakeFiles/pcd_read.dir/build.make CMakeFiles/pcd_read.dir/build
-.PHONY : pcd_read/fast
+convex_hull/fast:
+	$(MAKE) -f CMakeFiles/convex_hull.dir/build.make CMakeFiles/convex_hull.dir/build
+.PHONY : convex_hull/fast
 
-planar_segmentation.o: planar_segmentation.cpp.o
+main.o: main.cpp.o
 
-.PHONY : planar_segmentation.o
+.PHONY : main.o
 
 # target to build an object file
-planar_segmentation.cpp.o:
-	$(MAKE) -f CMakeFiles/pcd_read.dir/build.make CMakeFiles/pcd_read.dir/planar_segmentation.cpp.o
-.PHONY : planar_segmentation.cpp.o
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/convex_hull.dir/build.make CMakeFiles/convex_hull.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-planar_segmentation.i: planar_segmentation.cpp.i
+main.i: main.cpp.i
 
-.PHONY : planar_segmentation.i
+.PHONY : main.i
 
 # target to preprocess a source file
-planar_segmentation.cpp.i:
-	$(MAKE) -f CMakeFiles/pcd_read.dir/build.make CMakeFiles/pcd_read.dir/planar_segmentation.cpp.i
-.PHONY : planar_segmentation.cpp.i
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/convex_hull.dir/build.make CMakeFiles/convex_hull.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-planar_segmentation.s: planar_segmentation.cpp.s
+main.s: main.cpp.s
 
-.PHONY : planar_segmentation.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-planar_segmentation.cpp.s:
-	$(MAKE) -f CMakeFiles/pcd_read.dir/build.make CMakeFiles/pcd_read.dir/planar_segmentation.cpp.s
-.PHONY : planar_segmentation.cpp.s
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/convex_hull.dir/build.make CMakeFiles/convex_hull.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -158,10 +158,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... pcd_read"
-	@echo "... planar_segmentation.o"
-	@echo "... planar_segmentation.i"
-	@echo "... planar_segmentation.s"
+	@echo "... convex_hull"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

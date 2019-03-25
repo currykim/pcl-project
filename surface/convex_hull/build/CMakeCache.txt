@@ -180,7 +180,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=pcd_read
+CMAKE_PROJECT_NAME:STATIC=ConvexHull
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -230,6 +230,12 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+//Value Computed by CMake
+ConvexHull_BINARY_DIR:STATIC=/home/khkim/pcl-project/surface/convex_hull/build
+
+//Value Computed by CMake
+ConvexHull_SOURCE_DIR:STATIC=/home/khkim/pcl-project/surface/convex_hull
 
 //Path to a file.
 DAVIDSDK_INCLUDE_DIR:PATH=DAVIDSDK_INCLUDE_DIR-NOTFOUND
