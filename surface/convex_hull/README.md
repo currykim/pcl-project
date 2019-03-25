@@ -37,7 +37,7 @@ seg.setDistanceThreshold (0.05); // 5cm
 		}
 ```
 
-`-cv ` : Convex Hull
+`-cv` : Convex Hull
 
 `-cc` : Concave Hull
 
