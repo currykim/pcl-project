@@ -72,3 +72,5 @@ inlier_pcd_[inlier 데이터 갯수1].pcd
 inlier_pcd_[inlier 데이터 갯수2].pcd
 ...
 ```
+
+참조 : http://pointclouds.org/documentation/tutorials/extract_indices.php
