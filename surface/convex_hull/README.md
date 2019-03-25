@@ -7,7 +7,7 @@ cloud_f(new pcl::PointCloud<pcl::PointXYZ>),
 cloud_hull(new pcl::PointCloud<pcl::PointXYZ>);
 ```
 
-````C++
+```C++
 // Create the segmentation object
 pcl::SACSegmentation<pcl::PointXYZ> seg;
 
