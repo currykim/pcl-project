@@ -65,4 +65,10 @@ make
 cd build
 ./pcd_read [.pcd file]
 ```
-
+## 결과
+```bash
+ls *.pcd
+inlier_pcd_[inlier 데이터 갯수1].pcd
+inlier_pcd_[inlier 데이터 갯수2].pcd
+...
+```
