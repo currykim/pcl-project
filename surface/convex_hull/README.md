@@ -7,7 +7,7 @@ cloud_f(new pcl::PointCloud<pcl::PointXYZ>),
 cloud_hull(new pcl::PointCloud<pcl::PointXYZ>);
 ```
 
-````C++
+```C++
 // Create the segmentation object
 pcl::SACSegmentation<pcl::PointXYZ> seg;
 
@@ -22,22 +22,22 @@ seg.setDistanceThreshold (0.05); // 5cm
 ```
 
 ```c++
-		// Use ConvexHull
-		if (pcl::console::find_argument (argc, argv, "-cv") >= 0){
-			pcl::ConvexHull<pcl::PointXYZ> chull;
-			chull.setInputCloud(cloud_p);
-			chull.reconstruct(*cloud_hull);
+// Use ConvexHull
+if (pcl::console::find_argument (argc, argv, "-cv") >= 0){
+	pcl::ConvexHull<pcl::PointXYZ> chull;
+	chull.setInputCloud(cloud_p);
+	chull.reconstruct(*cloud_hull);
 
-		// Use ConcaveHull
-		}else if(pcl::console::find_argument (argc, argv, "-cc") >= 0){
-			pcl::ConcaveHull<pcl::PointXYZ> chull;
-			chull.setInputCloud(cloud_p);
-			chull.setAlpha (0.1);
-			chull.reconstruct(*cloud_hull);
-		}
+// Use ConcaveHull
+}else if(pcl::console::find_argument (argc, argv, "-cc") >= 0){
+	pcl::ConcaveHull<pcl::PointXYZ> chull;
+	chull.setInputCloud(cloud_p);
+	chull.setAlpha (0.1);
+	chull.reconstruct(*cloud_hull);
+}
 ```
 
-`-cv ` : Convex Hull
+`-cv` : Convex Hull
 
 `-cc` : Concave Hull
 
