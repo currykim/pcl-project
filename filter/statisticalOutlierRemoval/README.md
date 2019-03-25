@@ -9,7 +9,7 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::Poi
 pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
 sor.setInputCloud (cloud); // pcd 파일 읽기
 sor.setMeaK (50); //최소 이웃점 객수
-sor.setStddevMulThresh (1.0); // mean + stddev_mult * stddev, 최소 거리
+sor.setStddevMulThresh (1.0); // mean + stddev_mult * stddev, stddev_mult 값
 sor.filter(*cloud_filtered); // inlier 데이터 저장
 ```
 
